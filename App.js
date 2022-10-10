@@ -2,44 +2,41 @@ import React from "react";
 import {View,Text,TouchableOpacity,StyleSheet, Dimensions, Image} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+import * as Animatable from 'react-native-animatable';
+//MyCustomComponent = Animatable.createAnimatableComponent(MyCustomComponent);
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Image
+        <Animatable.Image
+          animation="bounceIn"
           source={require("./assets/codimaths_logo.png")}
           style={styles.logo}
           resizeMode="stretch"
         />
-        <Text style={styles.motto}>Gain Wisdom</Text>
       </View>
-      <View style={styles.footer}>
-        <Text style={styles.title}>Stay connected with everyone!! </Text>
-        <Text style={styles.text}>Sign in with Account</Text>
+      <Animatable.View animation="fadeInUpBig" style={styles.footer}>
+        <Text style={styles.title}>Take a leap in learning!! </Text>
+        <Text style={styles.text}>Experience a new style of learning</Text>
         <View style={styles.button}>
           <TouchableOpacity onPress={() => {}}>
             <LinearGradient
-              colors={["#08d4c4", "#01ab9d"]}
+              colors={["#38b6ff", "#5ce1e6"]}
               style={styles.signIn}
             >
               <Text style={styles.textSign}>Get Started</Text>
-              <MaterialIcons
-                name="navigate-next"
-                color="#ffffff"
-                size={20}
-              />
-
+              <MaterialIcons name="navigate-next" color="#ffffff" size={20} />
             </LinearGradient>
           </TouchableOpacity>
-        </View> 
-      </View>
+        </View>
+      </Animatable.View>
     </View>
   );
 }
 
 const {height} = Dimensions.get("screen");
-const height_logo = height*0.30;
+const height_logo = height*0.15;
 
 const styles = StyleSheet.create({
   container:{
@@ -47,7 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   header: {
-    flex:2,
+    flex:1,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -56,28 +53,28 @@ const styles = StyleSheet.create({
   },
   footer: {
     flex:1,
-    backgroundColor: "blue",
+    backgroundColor: "#4046af",
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingVertical: 50,
     paddingHorizontal: 30
   },
   logo:{
-    width: height_logo,
+    width: height_logo*2.0,
     height: height_logo
   },
   title: {
-    color: "#05375a",
+    color: "#c6d2e9",
     fontSize: 30,
     fontWeight: "bold"
   },
   text:{
-    color: "grey",
+    color: "#fff",
     marginTop:5
   },
   button: {
     alignItems: "flex-end",
-    marginTop: 30
+    marginTop: 200
   },
   signIn: {
     width: 150,
